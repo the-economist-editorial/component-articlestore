@@ -42,5 +42,8 @@
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "dependencies": {
+    "@economist/component-store": "^1.1.0"
+  }
 }
