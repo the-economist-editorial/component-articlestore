@@ -1,0 +1,46 @@
+{
+  "name": "@economist/component-articlestore",
+  "version": "1.0.0",
+  "description": "Storage engine for component-articletemplate",
+  "author": "The Economist (http://economist.com)",
+  "license": "LicenseRef-LICENSE",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/the-economist-editorial/component-articlestore.git"
+  },
+  "homepage": "https://github.com/the-economist-editorial/component-articlestore#readme",
+  "bugs": {
+    "url": "https://github.com/the-economist-editorial/component-articlestore/issues"
+  },
+  "main": "index.js",
+  "files": [
+    "*.js"
+  ],
+  "eslintConfig": {
+    "extends": "strict/react"
+  },
+  "config": {
+    "lint_opts": "--ignore-path .gitignore --ext .es6"
+  },
+  "scripts": {
+    "lint": "eslint $npm_package_config_lint_opts .",
+    "prepublish": "babel index.es6 --source-maps=inline --stage=0 --loose > index.js",
+    "test": "npm run test:base -- -R tap",
+    "test:base": "mocha -r babel/register -r @economist/component-testharness",
+    "test:watch": "npm run test:base -- -wR min"
+  },
+  "devDependencies": {
+    "@economist/component-testharness": "^1.1.0",
+    "babel": "^5.5.8",
+    "eslint": "^0.24.0",
+    "eslint-config-strict": "^2.4.0",
+    "eslint-plugin-filenames": "^0.1.1",
+    "eslint-plugin-one-variable-per-var": "^0.0.3",
+    "eslint-plugin-react": "^2.6.3",
+    "mocha": "^2.2.5",
+    "pre-commit": "^1.0.10"
+  },
+  "pre-commit": [
+    "lint"
+  ]
+}
