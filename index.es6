@@ -14,7 +14,7 @@ export default class ArticleStore extends Store {
   setContent(content) {
     articles[0] = content.data[0].attributes;
     for (const article of content.data[0].relationships.posts.data) {
-      this.store.add(article);
+      this.add(article);
     }
   }
 
