@@ -1,5 +1,6 @@
 import Store from '@economist/component-store';
 const articles = {};
+let main = {};
 const includedStores = {};
 export default class ArticleStore extends Store {
 
@@ -11,8 +12,12 @@ export default class ArticleStore extends Store {
     return includedStores;
   }
 
+  get main() {
+    return main;
+  }
+
   setContent(content) {
-    articles[0] = content.data[0].attributes;
+    main = content.data[0];
     for (const article of content.data[0].relationships.posts.data) {
       this.add(article);
     }
